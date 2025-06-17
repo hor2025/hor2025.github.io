@@ -85,7 +85,44 @@
         footer a:hover {
             color: lightblue;
         }
+        .session {
+            font-size: 1.25rem;
+            padding: 1rem;
+            background: #004080;
+            color: white;
+        }
+        .break {
+            font-size: 1.25rem;
+            padding: 1rem;
+            background: #808080;
+            color: white;
+        }
+        .talk {
+            border: solid black 1px;
+            padding: 1rem 1rem 1rem 3rem;
+        }
+        .time {
+            font-weight: bold;
+        }
+        .speaker {
+            font-style: italic;
+        }
+        .title {
+            font-weight: bold;
+        }
+        .abstract {
+            display: none;
+        }
+        .show-abstract {
+            font-size: .75rem;
+        }
     </style>
+    <script type="text/javascript">
+function toggle(elem_id) {
+    let elem = document.getElementById(elem_id);
+    elem.style.display = elem.style.display !== 'block' ? 'block' : 'none';
+}
+    </script>
 </head>
 <body>
 
@@ -157,7 +194,7 @@ affiliated with <a href="https://fscd2025.github.io/">FSCD 2025</a><br>
         <ul>
         <li> Submission deadline: <s>15 May, 2025</s> &ndash; extended: <strong>20 May, 2025</strong>
         <li> Notification: 6 June, 2025
-        <li> Final version: 20 June, 2025
+        <li> Final version: 27 June, 2025
         <li> Workshop: 14 July, 2025
         </ul>
         All times are <a href="https://en.wikipedia.org/wiki/Anywhere_on_Earth">Anywhere on Earth</a>.
@@ -179,7 +216,150 @@ affiliated with <a href="https://fscd2025.github.io/">FSCD 2025</a><br>
 
     <div class="section">
         <h2><a name="programme">Programme</a></h2>
-        <p>TBA</p>
+        <div class="session">
+          <span class="time">09:00&ndash;10:00</span> Session 1
+        </div>
+        <div class="talk">
+          <span class="time">09:00</span>
+          <span class="speaker">Kasper Hagens and Cynthia Kop</span><br>
+          <span class="title">Higher-order inductive theorems via recursor templates</span>
+          <a class="show-abstract "href="javascript:toggle('abstract1')">(Abstract)</a><br>
+          <div id="abstract1" class="abstract">
+<p>Rewriting Induction (RI) is a formal system in term rewriting for proving inductive theorems. Recently, RI has been extended to higher-order Logically Constrained Term Rewriting Systems (LCTRSs), which makes it an interesting tool for program verification with inductive theorems as an interpretation for program equivalence. A major challenge when proving inductive theorems with RI is the generation of suitable induction hypothesis, preferably automatically. Two existing heuristics often fail. Here, we consider another approach: rather than inventing new heuristics for proving individual cases, we consider classes of equivalences. This is achieved by introducing templates for detecting specific tail and non-tail recursive shapes. Whenever each of the two programs fit into such a template we can generate an equation which is guaranteed to be an inductive theorem.</p>
+          </div>
+        </div>
+        <div class="talk">
+          <span class="time">09:30</span>
+          <span class="speaker">Alejandro Díaz-Caro, Octavio Malherbe and Rafael Romero</span><br>
+          <span class="title">Basis-Sensitive Quantum Typing via Realizability</span>
+          <a class="show-abstract "href="javascript:toggle('abstract2')">(Abstract)</a><br>
+          <div id="abstract2" class="abstract">
+<p>In most quantum programming languages, measurements are performed in the traditional computational basis. We present a work-in-progress where we dispose of this seemingly obvious choice and instead, we propose a quantum lambda-calculus where each lambda term is decorated with the basis in which it is to be measured.</p>
+<p>This will allows to define a type system where terms which were previously treated linearly, are now treated in a classical fashion. This is done without having to rely on unitary gates to do so and thus, adding an abstraction layer between programs and circuitry. Another unexpected benefit was found designing the type system. We found that, when restricting the uncertainties to their extreme, we were left with a formal system for specification akin to Hoare logic.</p>
+<p>In order to achieve this, we utilized the realizability technique to extract a lambda-calculus complete with its type system. We present the language and showcase a few examples.</p>
+          </div>
+        </div>
+        <div class="break">
+          <span class="time">10:00&ndash;10:30</span> Coffee Break
+        </div>
+        <div class="session">
+          <span class="time">10:30&ndash;12:00</span> Session 2
+        </div>
+        <div class="talk">
+          <span class="time">10:30</span>
+          Invited talk: <span class="speaker">Théo Winterhalter</span><br>
+          <span class="title">Controlling computation in type theory</span>
+          <a class="show-abstract "href="javascript:toggle('abstract3')">(Abstract)</a><br>
+          <div id="abstract3" class="abstract">
+<p>I will present relatively recent work on extending the Agda and Rocq interactive theorem provers with user-defined rewrite rules. Such extensions come with their own set of challenges: unrestrained they break many expected meta-theoretical properties of the provers. I will explain how we addressed those challenges, focusing in particular on the verification of type preservation and confluence. I will then present a new proposal enabling the use of custom rewrite rules only locally to a definition (or a module) which opens interesting new possibilities for tools like Agda, Rocq, or the Dedukti logical framework.</p>
+<p>This will include joint work with Jesper Cockx, Gaëtan Gilbert, Yann Leray and Nicolas Tabareau.</p>
+          </div>
+        </div>
+        <div class="talk">
+          <span class="time">11:30</span>
+          <span class="speaker">Rémy Cerda and Alexis Saurin</span><br>
+          <span class="title">Compression for Coinductive Infinitary Rewriting (A Preliminary Account)</span>
+          <a class="show-abstract "href="javascript:toggle('abstract4')">(Abstract)</a><br>
+          <div id="abstract4" class="abstract">
+          In “traditional” infinitary rewriting based on ordinal-indexed rewriting sequences and strong Cauchy convergence, a key property of rewriting systems is compression, that is, the fact that rewriting sequences of arbitrary ordinal length can be compressed to sequences of length ω. Famous examples of compressible systems are left-linear first-order systems and infinitary λ-calculi.
+In this work, we investigate compression in the equivalent setting of coinductive infinitary rewriting, which we recall in a slightly augmented form: we extend it to rewriting of (possibly non-wellfounded) derivations in an arbitrary sytem of derivation rules. Then we define the coinductive counterpart of compressed rewriting sequences, and we present a general coinductive procedure turning arbitrary infinitary rewriting derivations into compressed ones, without relying on convergence. The coinductive presentation of the two aforementioned examples are endowed with compression lemmas as instances of our general method.
+          </div>
+        </div>
+        <div class="break">
+          <span class="time">12:00&ndash;14:00</span> Lunch Break
+        </div>
+        <div class="session">
+        <span class="time">14:00&ndash;15:30</span> Session 3
+        </div>
+        <div class="talk">
+          <span class="time">14:00</span>
+          Invited talk: <span class="speaker">Vincent van Oostrom</span><br>
+          <span class="title">TBA</span>
+          <a class="show-abstract "href="javascript:toggle('abstract5')">(Abstract)</a><br>
+          <div id="abstract5" class="abstract">
+          TBA
+          </div>
+        </div>
+        <div class="talk">
+          <span class="time">15:00</span>
+          <span class="speaker">Enno Folkerts</span><br>
+          <span class="title">Left Invertitibility and the Left Cancellation Law in models of the Pure Lambda Calculus</span>
+          <a class="show-abstract "href="javascript:toggle('abstract6')">(Abstract)</a><br>
+          <div id="abstract6" class="abstract">
+          The origin of this extended abstract is the question which property of universal algebra is best suited to model the
+role of free variables in term models of the lambda calculus.
+In some mathematical contexts variables and indeterminates are just the same thing.
+In this paper however, a variable is a term that can be turned into a semantic object when considering term models.
+Indeterminates on the other hand are defined by a universal property and purely semantical objects.
+The main result of this paper is the identification of a central property of universal algebra that holds for variables in the typical term models
+while we construct a combinatory algebra where this property does not hold for indeterminates.
+          </div>
+        </div>
+        <div class="break">
+          <span class="time">15:30&ndash;16:00</span> Coffee Break
+        </div>
+        <div class="session">
+        <span class="time">16:00&ndash;17:30</span> Session 4
+        </div>
+        <div class="talk">
+          <span class="time">16:00</span> 
+          Invited talk: <span class="speaker">Damiano Mazza</span><br>
+          <span class="title">Revisiting Honda and Laurent's Correspondence between the Pi-Calculus and Linear Logic</span>
+          <a class="show-abstract "href="javascript:toggle('abstract7')">(Abstract)</a><br>
+          <div id="abstract7" class="abstract">
+<p>In the late 2000s Honda and Laurent found an interesting correspondence
+between the (asynchronous, local, internal) pi-calculus and a variant of
+(polarized) linear logic proof nets.  Ehrhard and Laurent later
+understood that these were in fact differential proof nets, that is,
+proofs for an extension of linear logic called differential linear
+logic.  This logical system admits cut-elimination, thus yielding what
+looks like a concurrent version of the Curry-Howard correspondence.
+Unfortunately, such a correspondence is imperfect: in Ehrhard and
+Regnier's original formulation, which is the one considered by Ehrhard
+and Laurent, the non-determinism of differential proof nets is incapable
+of soundly matching the non-determinism of the pi-calculus (technically,
+the natural rewriting systems associated with proof nets and with
+processes are not bisimilar).</p>
+<p>In the meantime, Caires and Pfenning introduced their own concurrent
+version of the Curry-Howard correspondence, using plain linear logic on
+one side and the session-typed pi-calculus on the other.  The work of
+Honda, Laurent and Ehrhard was sort of eclipsed by the success of this
+correspondence, and was not pursued any further.</p>
+<p>It never occurred to anyone (including, until recently, myself) that,
+rather than pointing out some insurmountable fundamental gap, the
+failure of the first correspondence is simply suggesting that Ehrhard
+and Regnier's cut-elimination rules for differential linear logic should
+be changed.  Although it is still unclear (especially to myself) to what
+extent this idea may be developed, it has already led to a couple of
+interesting applications of linear-logical techniques to the
+pi-calculus.  It also improved our (or, at least, my) understanding of
+the relationship between Honda and Laurent's and Caires and Pfenning's
+correspondences.  Albeit still difficult to formalize technically (at
+least for me), the relationship is much tighter than what it looks like
+at first sight (at least my sight).</p>
+<p>I will explain how the pi-calculus suggests alternative cut-elimination
+rules for differential linear logic, essentially rediscovering Honda and
+Laurent's proof nets, but with a different syntax and backed up by the
+solid semantic foundations provided by differential linear logic.  From
+there, I will introduce the applications I mentioned above, namely
+intersection types for the pi-calculus (a joint work with Dal Lago, de
+Visme and Yoshimizu published a few years ago) and a work in progress
+with Jaramillo and Perez in which we develop a type system enforcing
+deadlock-freedom for a very expressive session-typed pi-calculus.  Along
+the way, and if time allows it, I will try to give my understanding of
+the kinship between Honda and Laurent's and Caires and Pfenning's
+concurrent versions of Curry-Howard.</p>
+          </div>
+        </div>
+        <div class="talk">
+          <span class="time">17:00</span>
+          <span class="speaker">Alejandro Diaz-Caro, Gilles Dowek and Jean-Pierre Jouannaud</span><br>
+          <span class="title">Proving Termination With CPO</span>
+          <a class="show-abstract "href="javascript:toggle('abstract8')">(Abstract)</a><br>
+          <div id="abstract8" class="abstract">
+<p>A popular, effective simplification ordering for proving termination of rewrite rules in a first-order setting is Dershowitz' recursive path ordering (RPO). Its higher-order generalization, the computability path ordering (CPO) by Blanqui, Jouannaud and Rubio is as effective, but much less popular. In this paper, we show that it can indeed be used in practice to save lots of complex termination arguments. Our examples originate from a recent proposal of the first two authors using a natural deduction style to describe quantum computations.</p>
+          </div>
+        </div>
     </div>
 
     <div class="section">
