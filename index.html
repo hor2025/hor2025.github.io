@@ -274,10 +274,66 @@ In this work, we investigate compression in the equivalent setting of coinductiv
         <div class="talk">
           <span class="time">14:00</span>
           Invited talk: <span class="speaker">Vincent van Oostrom</span><br>
-          <span class="title">TBA</span>
+          <span class="title">Accounting for the cost of substitution in structured rewriting</span>
           <a class="show-abstract "href="javascript:toggle('abstract5')">(Abstract)</a><br>
           <div id="abstract5" class="abstract">
-          TBA
+<p>
+  We are interested in the cost of evaluating functional programs
+  implemented by means of rewriting,
+  be it higher- or first-order term rewriting or graph rewriting.
+  Our starting observation is that in such <em>structured</em> rewrite systems
+  the cost of <em>matching</em> exhibiting a redex-pattern, and 
+  of <em>substitution</em> plugging-in the right-hand, is an
+  <em>a priori</em> non-neglible part of the cost of a rewrite step.
+  To account for that cost we propose to decompose
+  rewrite steps into 3 stages: matching, replacement, and substitution,
+  with the 1st and 3rd stages themselves consisting of rewrite steps
+  in a so-called <em>Substitution Calculus</em> (SC).
+  More precisely, 
+  in a structured rewrite system, a rewrite step from a structure s to a structure
+  t arises as C[&rho;] : C[l] &rarr; C[r] for some structure C[x] and rule &rho; : l &rarr; r
+  by <em>substituting</em> the rule symbol &rho; respectively the structures l and r for x in C[x].
+  For instance, in the case of higher-order term rewriting, rewrite steps invoke <em>higher-order</em>
+  substitutions for both the <em>matching</em> and <em>substitution</em> stages.
+  To get a hold on the cost of a rewrite step in structured rewriting,
+  we propose substitution be made explicit leading to the rewrite step C[&rho;]
+  being decomposed into s <sub>SC</sub>&Larr; C[l] &rarr; C[r] &Rarr;<sub>SC</sub> t
+  for some substitution calculus SC,
+  with the cost of the step being the sum of the costs of its 3 stages:
+  <ol>
+    <li> the <em>matching</em> phase, the SC-expansion s <sub>SC</sub>&Larr; C[l] exhibiting the to-be-replaced substructure l within s;
+    <li> the <em>replacement</em> C[l] &rarr; C[r] of l by r according to rule &rho;;
+    <li> the <em>substitution</em> phase, the SC-reduction C[r] &Rarr;<sub>SC</sub> t plugging-in the substructure r yielding t.
+  </ol>
+  We exemplify this idea for higher-order term rewrite systems (HRSs; having the simply typed &lambda;&alpha;&beta;&eta;-calculus as SC), for first-order
+  term rewrite systems (TRSs; having an SC based on letrec), for term graph rewrite systems (TGRSs; having an SC, the &#x0436;-calculus, based on
+  sharing) and for port-graph rewrite systems (PGRSs; having an SC based on indirection).
+</p>
+<p>
+  The decomposition allows to investigate whether the cost of the SC-steps in stages 1 and 3 can be accounted for by the
+  replacement step in stage 2, and / or  whether SC-steps themselves are unit cost or need to be decomposed further, in a given structured rewrite system.
+  We illustrate this for the archetypical second-order HRS of beta-steps in the lambda-calculus.
+  We show that of three well-known notions of beta-reduction: weak, leftmost&ndash;outermost, and multistep,
+  the cost of the SC-steps <em>is</em> neglible for weak and leftmost&ndash;outermost beta, but is <em>not</em> neglible for multistep beta:
+  <ul>
+  <li>
+    For weak and leftmost&ndash;outermost beta-reduction the substitutions to be performed
+    are essentially first-order, suggesting one can implement both by TRSs.
+    Further observing that TRS-steps are not unit cost (due to replication being built-in in its SC),
+    we then further implement TRSs by TGRSs.
+    Rewrite steps of the latter being <em>obviously</em> unit cost allows us then (by some careful reasoning)
+    to conclude the same for weak and leftmost&ndash;outermost beta.
+  <li>
+    That is then contrasted to that multistep beta-reduction is not unit cost. 
+    We base ourselves on the known fact that reaching a normal form is <em>much</em>
+    more costly than the number of multistep betas needed to reach that normal form,
+    entailing that the cost of substitution must be <em>high</em> (as difference between the former and the latter).
+    We illustrate this phenomenon for an implementation of multistep beta by means of a PGRS,
+    decomposing every multistep beta into: 
+    4 SC-expansion steps of size 1, 1 replacement step of size 4,
+    followed by a number of SC-reduction steps, a number that necessarily must be <em>large</em>, and indeed is large as we demo.
+  </ul>
+</p>
           </div>
         </div>
         <div class="talk">
